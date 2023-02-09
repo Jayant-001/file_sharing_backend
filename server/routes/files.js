@@ -81,17 +81,17 @@ router.post("/send", async (req, res) => {
                 size: parseInt(file.size / 1000) + " KB",
                 expires: "24 hours",
             }),
-        }).then((response) => {
-            return res.status(200).send({ success: true });
         })
-        .catch((err) => {
-            console.error(err);
-            return res.status(500).send({ error: 'Internal server error' });
-        })
-
+            .then((response) => {
+                return res.status(200).send({ success: true });
+            })
+            .catch((err) => {
+                console.error(err);
+                return res.status(500).send({ error: "Internal server error" });
+            });
     } catch (error) {
-        console.error(error)
-        return res.status(500).send({ error: 'Internal server error' });
+        console.error(error);
+        return res.status(500).send({ error: "Internal server error" });
     }
 });
 
