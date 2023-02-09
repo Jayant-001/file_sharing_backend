@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Download Page</title>
+  </head>
+  <body>
+
+    <div>
+
+      <h1>Download Your file</h1>
+      <% if(locals.error) { %>
+      <h4><%= locals.error %></h4>
+      <% } else { %>
+        <h2>File is ready to download</h2>
+        <h3> File name <%= locals.fileName %> </h3>
+        <p> <%= parseInt(locals.fileSize / 1000) %> KB </p>
+        <a href="<%= locals.downloadLink %>">Download file</a>
+        <% } %>
+    </div>
+  </body>
+</html>
